@@ -19,11 +19,13 @@ function sumar()
 
 function restar()
 {
-	num1 = null;
-	num2 = null;
-	numeroUno.value = null
-	numeroDos.value = null
-	resultado = null;
+	
+	num1 = parseInt(numeroUno.value);
+	num2 = parseInt(numeroDos.value);
+	if(num1 && num2){
+		resultado = num1 - num2;
+		alert(+num1+" - "+num2+" = "+resultado);
+	}
 }
 
 function multiplicar()
