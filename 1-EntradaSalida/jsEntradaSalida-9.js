@@ -9,7 +9,7 @@ function mostrarAumento()
 	sueldoVar = parseInt(sueldo.value);
 
 	if(sueldoVar){
-		resultadoVar = sueldoVar * 1.1;
+		resultadoVar = sueldoVar * 10/100 + sueldoVar;
 		resultado.value = resultadoVar.toFixed(2); 
 	}
 	

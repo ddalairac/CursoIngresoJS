@@ -8,11 +8,14 @@ function SacarResto()
 	var num2;
 	var resultado;
 	var resto;
-	num1 = parseInt(numeroDividendo.value);
-	num2 = parseInt(numeroDivisor.value);
-	if(num1 && num2){
+	num1 = numeroDividendo.value;
+	num2 = numeroDivisor.value;
+
+	num1 = parseInt(num1);
+	num2 = parseInt(num2);
+	//if(num1 && num2){
 	 	resultado = num1 / num2; 
  		resto = num1 % num2; 
 		alert("Resultado "+resultado+" - Resto "+resto);
-	}
+	//}
 }

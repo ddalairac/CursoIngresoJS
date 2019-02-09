@@ -9,7 +9,7 @@ function mostrarAumento()
 	importeVar = parseInt(importe.value);
 
 	if(importeVar){
-		resultadoVar = importeVar * 0.75;
+		resultadoVar = importeVar * 25/100 - importeVar;
 		resultado.value = resultadoVar.toFixed(2); 
 	}
 	
