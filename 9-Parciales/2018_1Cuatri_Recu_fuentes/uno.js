@@ -1,20 +1,20 @@
 
 function mostrar()
 {
-	var ancho;
-	var largo;
-	var perimetro
-	ancho = prompt("Ingrese el ancho del rectangulo");
-	largo = prompt("Ingrese el largo del rectangulo");
+	var mascota1
+	var mascota2
+	var peso1;
+	var peso2;
+	var pesoTotal
+	mascota1 = prompt("Ingrese el nombre de la mascota 1");
+	mascota2 = prompt("Ingrese el nombre de la mascota 2");
+	peso1 = prompt("Ingrese el peso de la mascota 1");
+	peso2 = prompt("Ingrese el peso de la mascota 2");
 	
-	ancho=parseInt(ancho);
-	largo=parseInt(largo);
+	peso1=parseInt(peso1);
+	peso2=parseInt(peso2);
 
-	perimetro = (ancho + largo) * 2;
-	alert("El perimetro del rectangulo: "+perimetro);
+	pesoTotal = peso1 + peso2;
+	alert("tenes dos mascotas "+mascota1+" y "+mascota2+", que pesan "+peso1+" y "+peso2+" kilos, la suma de los kilos es "+pesoTotal);
 
 }
-/*
-Realizar el algoritmo que pida el ancho y el largo de un rectángulo por prompt 
-y que muestre el perímetro por alert.
-*/
