@@ -5,7 +5,7 @@ function mostrar()
 	var mascota2
 	var peso1;
 	var peso2;
-	var pesoTotal
+	var pesoTotal;
 	mascota1 = prompt("Ingrese el nombre de la mascota 1");
 	mascota2 = prompt("Ingrese el nombre de la mascota 2");
 	peso1 = prompt("Ingrese el peso de la mascota 1");
