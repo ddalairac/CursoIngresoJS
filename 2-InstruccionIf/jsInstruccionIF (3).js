@@ -7,7 +7,8 @@ function mostrar()
 	if(age < 18){
 		alert("Es menor de edad");
 	}
-	if(age > 18){
+	//if(age >= 18){
+	if(age > 17){
 		alert("Es mayor de edad");
 	}
 
