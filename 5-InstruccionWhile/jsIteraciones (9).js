@@ -1,26 +1,29 @@
 function mostrar() {
 
-	var contador;
 	var respuesta;
-	contador = 0;
-	respuesta = 's';
-
+	var numero;
 	var maximo;
 	var minimo;
-	maximo = -999;
-	minimo = 999;
+	var bandera;
+	respuesta = 's';
+	bandera = true;
 
 	while (respuesta == 's') {
-		contador = contador + 1;
 		numero = prompt("ingrese el numero");
 		numero = parseInt(numero);
-		if(numero > maximo){
-			maximo = numero
-		} 
-		if(numero > minimo){
-			minimo = numero
-		} 
-		respuesta = prompt("ingrese 'si' para continuar");
+		if (bandera) {
+			maximo = numero;
+			minimo = numero;
+			bandera = false;
+		} else {
+			if (numero > maximo) {
+				maximo = numero;
+			}
+			if (numero < minimo) {
+				minimo = numero;
+			}
+		}
+		respuesta = prompt("ingrese 's' para continuar");
 	}
 	document.getElementById('maximo').value = maximo;
 	document.getElementById('minimo').value = minimo;
