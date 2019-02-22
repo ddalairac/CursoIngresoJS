@@ -22,7 +22,7 @@ si es inferior a 50, PAGA 15% extra
 	precio2 = prompt("Ingrese el valor total de la comida");
 	precio3 = prompt("Ingrese el valor total de la comida");
 	precio4 = prompt("Ingrese el valor total de la comida");
-
+    
 	precio1 = parseInt(precio1);
 	precio2 = parseInt(precio2);
 	precio3 = parseInt(precio3);
