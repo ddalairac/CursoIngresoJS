@@ -33,7 +33,7 @@ function mostrar() {
 				contadorCeros = contadorCeros + 1;
 			}
 		}
-		if (!(numero % 2)) { // es par
+		if (numero % 2 == 0 && numero != 0) { // es par
 			contadorPares = contadorPares + 1;
 		}
 
