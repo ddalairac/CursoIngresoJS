@@ -21,16 +21,23 @@ function mostrar() {
 			alumnoNota = prompt("error, Ingrese Nota");
 			alumnoNota = parseInt(alumnoNota);
 		}
-		alumnoSexo = prompt("Ingrese sexo");
 
+
+
+		alumnoSexo = prompt("Ingrese sexo");
 		while (alumnoSexo != "f" && alumnoSexo != "m") {
 			alumnoSexo = prompt("error, Ingrese sexo");
+		}
+
+		estadoCivil = prompt("Ingrese estado civil");
+		while (estadoCivil != "f" && estadoCivil != "m") {
+			estadoCivil = prompt("error, Ingrese estado civil");
 		}
 
 		// promedio de notas
 		totalNotas = totalNotas + alumnoNota;
 
-		// Nota bas baja
+		// Nota mas baja
 		if (contador == 0) {
 			notaMasBaja = alumnoNota;
 			notaMasBajaSexo = alumnoSexo;
@@ -42,8 +49,7 @@ function mostrar() {
 		}
 
 		// varones con nota >= 6
-		if (alumnoSexo == "m") {
-			if (alumnoNota >= 6) {
+		if (alumnoSexo == "m" && alumnoNota >= 6) {
 				contadorSupera5 = contadorSupera5 + 1;
 			}
 		}
