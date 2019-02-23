@@ -5,25 +5,74 @@ El jugador seleccionará una imagen correspondiente
 a su opción  y le informaremos si ganó, empató o perdió.
 */
 var eleccionMaquina;
+var eleccionUsuario
 
-function comenzar()
-{
-	
-
-
+function comenzar() {
+    eleccionMaquina = (Math.floor(Math.random() * 3) + 1);
+    //console.log("numeroSecreto " + eleccionMaquina);
 }//FIN DE LA FUNCIÓN
-function piedra()
-{
-	
-
+function piedra() {
+    comenzar();
+    eleccionUsuario = 1;
+    resultado()
 }//FIN DE LA FUNCIÓN
-function papel()
-{
-
-
+function papel() {
+    comenzar();
+    eleccionUsuario = 2;
+    resultado()
 }//FIN DE LA FUNCIÓN
-function tijera()
-{
-	
-
+function tijera() {
+    comenzar();
+    eleccionUsuario = 3;
+    resultado()
 }//FIN DE LA FUNCIÓN
+
+function resultado() {
+    var mensaje;
+    mensaje = "";
+    switch (eleccionMaquina) {
+        case 1:
+            mensaje += "piedra, "
+            switch (eleccionUsuario) {
+                case 1:
+                    mensaje += "empate"
+                    break;
+                case 2:
+                    mensaje += "ganaste"
+                    break;
+                case 3:
+                    mensaje += "perdiste"
+                    break;
+            }
+            break;
+        case 2:
+            mensaje += "papel, "
+            switch (eleccionUsuario) {
+                case 1:
+                    mensaje += "perdiste"
+                    break;
+                case 2:
+                    mensaje += "empate"
+                    break;
+                case 3:
+                    mensaje += "ganaste"
+                    break;
+            }
+            break;
+        case 3:
+            mensaje += "tijera, "
+            switch (eleccionUsuario) {
+                case 1:
+                    mensaje += "ganaste"
+                    break;
+                case 2:
+                    mensaje += "perdiste"
+                    break;
+                case 3:
+                    mensaje += "empate"
+                    break;
+            }
+            break;
+    }
+    alert(mensaje);
+}
