@@ -44,20 +44,20 @@ function comenzar() {
     document.getElementById("Operador").value = operadorMensaje;
     document.getElementById("SegundoNumero").value = segundoNumero;
 
-    miIntervalo = setTimeout(finDelTienpo, 4000);
+    miIntervalo = setInterval(finDelTienpo, 4000);
 
 }//FIN DE LA FUNCIÓN
 
 function finDelTienpo() {
-    alert ("Se acabo el tiempo");
-    miIntervalo = null;
+    alert("Se acabo el tiempo");
+    clearTimeout(miIntervalo);
     document.getElementById("PrimerNumero").value = null;
     document.getElementById("Operador").value = null;
     document.getElementById("SegundoNumero").value = null;
     document.getElementById("Respuesta").value = null;
 }
 function Responder() {
-    miIntervalo = null;
+    clearTimeout(miIntervalo);
     respuesta = document.getElementById("Respuesta").value;
     if (respuesta == resultado) {
         mensaje = "Ganaste";
@@ -66,4 +66,3 @@ function Responder() {
     }
     alert(mensaje);
 }//FIN DE LA FUNCIÓN
- 
