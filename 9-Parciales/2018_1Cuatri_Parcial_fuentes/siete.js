@@ -22,16 +22,9 @@ function mostrar() {
 			alumnoNota = parseInt(alumnoNota);
 		}
 
-
-
 		alumnoSexo = prompt("Ingrese sexo");
 		while (alumnoSexo != "f" && alumnoSexo != "m") {
 			alumnoSexo = prompt("error, Ingrese sexo");
-		}
-
-		estadoCivil = prompt("Ingrese estado civil");
-		while (estadoCivil != "f" && estadoCivil != "m") {
-			estadoCivil = prompt("error, Ingrese estado civil");
 		}
 
 		// promedio de notas
@@ -51,7 +44,6 @@ function mostrar() {
 		// varones con nota >= 6
 		if (alumnoSexo == "m" && alumnoNota >= 6) {
 				contadorSupera5 = contadorSupera5 + 1;
-			}
 		}
 
 		/* console.log("suma " + totalNotas);
