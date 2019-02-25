@@ -27,7 +27,7 @@ function mostrar() {
 			alumnoSexo = prompt("error, Ingrese sexo");
 		}
 
-		// promedio de notas
+		// total de notas para promediar despues
 		totalNotas = totalNotas + alumnoNota;
 
 		// Nota mas baja
@@ -35,7 +35,7 @@ function mostrar() {
 			notaMasBaja = alumnoNota;
 			notaMasBajaSexo = alumnoSexo;
 		} else {
-			if (notaMasBaja < alumnoNota) {
+			if (notaMasBaja > alumnoNota) {
 				notaMasBaja = alumnoNota;
 				notaMasBajaSexo = alumnoSexo;
 			}
@@ -53,9 +53,9 @@ function mostrar() {
 	}
 	promedio = totalNotas / cantidadAlumnos;
 	alert(
-		"promedio " + totalNotas +
-		" nota más baja y el sexo " + notaMasBaja + " " + notaMasBajaSexo +
-		" contadorSupera5 " + contadorSupera5
+		"Promedio notas: " + totalNotas +
+		" | Nota más baja y el sexo: " + notaMasBaja + " " + notaMasBajaSexo +
+		" | Varones nota += a 6: " + contadorSupera5
 	)
 }
 

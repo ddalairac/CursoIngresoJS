@@ -1,177 +1,122 @@
-function mostrar()
-{
-	var marca = new Array();
-	var peso = new Array();
-	var temperatura = new Array();
+function mostrar() {
+	var marca;
+	var peso;
+	var temperatura;
 	var continuar;
+	var contador;
 
-	marca = ["fiat","nike","absolute"];
-	peso = [3,99,29];
-	temperatura = [-12,0,23];
-	/* continuar = true
-	while(continuar){
-		marca.push(prompt("Marca del producto"));
-		peso.push(pesoValidado());
-		temperatura.push(temperaturaValidado());
-		continuar = confirm("Ingresar otro producto")
-	} */
-	console.log("marca "+marca);
-	console.log("peso "+peso);
-	console.log("temperatura "+temperatura);
-
-	var indexProductoMasPesado;
-	var totalTempPar;
-	var productoMasPesado;
-	var productoDeMenosDeCeroGrados;
-	var promedioPesoProductos;
+	var cantidadTempPar;
+	var marcaMasPesado;
+	var cantidadMenosCeroGrados;
+	var sumaPeso;
+	var promedioPeso;
 	var pesoMaximo;
 	var pesoMinimo;
 
-	totalTempPar = calcularTotalTempPar(temperatura);
-	indexProductoMasPesado = calcProductoMasPesado(peso);
-	productoMasPesado = marca[indexProductoMasPesado];
-	productoDeMenosDeCeroGrados = calcProductoDeMenosDeCeroGrados(temperatura);
-	promedioPesoProductos = calcPromedioPesoProductos(peso);
-	pesoMaximo = calcPesoMaximo(peso);
-	pesoMinimo = calcPesoMinimo(peso);
+	continuar = true;
+	contador = 0;
+	cantidadTempPar = 0;
+	marcaMasPesado = "";
+	cantidadMenosCeroGrados = 0;
+	sumaPeso = 0;
+	promedioPeso = 0;
+	pesoMaximo = 0;
+	pesoMinimo = 0;
 
-/* 	
-	console.log("total Temperaturas Par: "+totalTempPar);
-	console.log("producto Mas Pesado: "+productoMasPesado);
-	console.log("productos De Menos De CeroGrados: "+productoDeMenosDeCeroGrados);
-	console.log("promedioPesoProductos: "+promedioPesoProductos);
-	console.log("pesoMaximo: "+pesoMaximo);
-	console.log("pesoMinimo: "+pesoMinimo); 
-	*/
-	var resultados
-	resultados = 	"total Temperaturas Par: "+totalTempPar+"<br>"+
-								"producto Mas Pesado: "+productoMasPesado+"<br>"+
-								"productos De Menos De CeroGrados: "+productoDeMenosDeCeroGrados+"<br>"+
-								"promedioPesoProductos: "+promedioPesoProductos+"<br>"+
-								"pesoMaximo: "+pesoMaximo+"<br>"+
-								"pesoMinimo: "+pesoMinimo;
+	while (continuar) {
+		//****************************
+		// Introduccion de datos
 
-	document.write (resultados);
+		marca = prompt("Ingrese una marca");
 
-
-
-
-
-
-}
-function pesoValidado(){
-	var peso;
-	peso = prompt("Peso del producto (número entre 1 y 100 )");
-	peso = parseInt(peso);
-	if(peso >= 1 && peso <= 100){
-		return peso;
-	} else {
-		return pesoValidado();
-	}
-}
-function temperaturaValidado(){
-	var temperatura;
-	temperatura = prompt("temperatura del producto (número entre -30 y 30 )");
-	temperatura = parseInt(temperatura);
-	if(temperatura >= -30 && temperatura <= 30){
-		return temperatura;
-	} else {
-		return temperaturaValidado();
-	}
-}
-function calcularTotalTempPar(temperatura){
-	var cantPares;
-	var resto
-	cantPares = 0
-	for(i=0;i<temperatura.length;i++){
-		resto = temperatura[i] % 2;
-		if(resto == 0 && temperatura[i] != 0){
-			cantPares++
+		peso = prompt("Ingrese un número entre 1 y 100");
+		peso = parseInt(peso);
+		while (peso < 1 || peso > 100) {
+			peso = prompt("Error, ingrese un número entre 1 y 100");
+			peso = parseInt(peso);
 		}
-	}
-	return cantPares;
-}
-function calcProductoMasPesado(peso){
-	var masPesado;
-	var indexDelMasPesado;
-	masPesado = peso[0];
-	for(i=0;i<peso.length;i++){
-		if(masPesado < peso[i] ){
-			masPesado = peso[i];
-			indexDelMasPesado = i;
 
-			for(e=0;e<peso.length;e++){
-				if(masPesado < peso[e] ){
-					//masPesado = peso[e];
-					indexDelMasPesado = e;
-				}
+		temperatura = prompt("Ingrese un número entre -30 y 30");
+		temperatura = parseInt(temperatura);
+		while (temperatura < -30 || temperatura > 30) {
+			temperatura = prompt("Error, ingrese un número entre -30 y 30");
+			temperatura = parseInt(temperatura);
+		}
+
+		continuar = confirm("Desea continuar?");
+
+
+		//****************************
+		// Clasificar datos
+		// suma total para promediar
+		sumaPeso = sumaPeso + peso
+
+		// La cantidad de temperaturas pares.
+		if (temperatura % 2 == 0 && temperatura != 0) {
+			cantidadTempPar = cantidadTempPar + 1;
+		}
+
+		//La cantidad de productos que se conservan a menos de 0 grados.
+		if (temperatura < 0) {
+			cantidadMenosCeroGrados = cantidadMenosCeroGrados + 1;
+		}
+
+		// primer bucle
+		if (contador == 0) {
+			pesoMaximo = peso;
+			pesoMinimo = peso;
+			marcaMasPesado = marca;
+		} else {
+			// peso Maximo
+			if (peso > pesoMaximo) {
+				pesoMaximo = peso;
+				marcaMasPesado = marca; // La marca del producto más pesado
+			}
+			if (peso < pesoMinimo) {
+				// peso Minimo
+				pesoMinimo = peso;
 			}
 		}
-	}
-	return indexDelMasPesado;
-}
-function calcProductoDeMenosDeCeroGrados(temperatura){
-	var prodBajoCero;
-	prodBajoCero = 0
-	for(i=0;i<temperatura.length;i++){
-		if(temperatura[i] < 0){
-			prodBajoCero++
-		}
-	}
-	return prodBajoCero;
-}
-function calcPromedioPesoProductos(peso){
-	var promedio;
-	var suma;
-	suma = 0
-	promedio = 0
-	for(i=0;i<peso.length;i++){
-		suma += peso[i];
-	}
-	promedio = suma / peso.length;
-	promedio = promedio.toFixed(2);
-	return promedio;
-}
-function calcPesoMaximo(peso){
-	var masPesado;
-	masPesado = peso[0];
-	for(i=0;i<peso.length;i++){
-		if(masPesado < peso[i] ){
-			masPesado = peso[i];
 
-			for(e=0;e<peso.length;e++){
-				if(masPesado < peso[e] ){
-					masPesado = peso[e];
-				}
-			}
-		}
+		contador = contador + 1;
 	}
-	return masPesado;
-}
-function calcPesoMinimo(peso){
-	var menosPesado;
-	menosPesado = peso[0];
-	for(i=0;i<peso.length;i++){
-		if(menosPesado > peso[i] ){
-			menosPesado = peso[i];
+	//El promedio del peso de todos los productos.
+	promedioPeso = sumaPeso / contador;
+	promedioPeso = promedioPeso
 
-			for(e=0;e<peso.length;e++){
-				if(menosPesado > peso[e] ){
-					menosPesado = peso[e];
-				}
-			}
-		}
-	}
-	return menosPesado;
+
+
+	//****************************
+	// Informe
+	/* 
+	console.log("contador: " + contador);
+	console.log("cantidad Temp Par: " + cantidadTempPar);
+	console.log("marca Mas Pesado: " + marcaMasPesado);
+	console.log("cantidad Menos Cero Grados: " + cantidadMenosCeroGrados);
+	console.log("suma Peso: " + sumaPeso);
+	console.log("promedio Peso: " + promedioPeso);
+	console.log("peso Maximo: " + pesoMaximo);
+	console.log("peso Minimo: " + pesoMinimo);
+ 	*/
+	document.write(
+		"contador: " + contador + "<br>" +
+		"cantidad Temp Par: " + cantidadTempPar + "<br>" +
+		"marca Mas Pesado: " + marcaMasPesado + "<br>" +
+		"cantidad Menos Cero Grados: " + cantidadMenosCeroGrados + "<br>" +
+		"promedio Peso: " + promedioPeso + "<br>" +
+		"peso Maximo: " + pesoMaximo + "<br>" +
+		"peso Minimo: " + pesoMinimo + "<br>"
+	);
+
 }
-/* Bienvenidos. 
-Realizar el algoritmo que permita ingresar 
-  - la marca del producto, 
-  - el peso el cual debe ser entre 1 y 100 (validar), 
-	- la temperatura de almacenamiento(entre -30 y 30) 
-	hasta que el usuario quiera e informar al terminar el ingreso por document.write: 
-a) La cantidad de temperaturas pares. 
-b) La marca del producto más pesado 
-c) La cantidad de productos que se conservan a menos de 0 grados. 
-d) El promedio del peso de todos los productos.	
+/* Bienvenidos.
+Realizar el algoritmo que permita ingresar
+  - la marca del producto,
+  - el peso el cual debe ser entre 1 y 100 (validar),
+  - la temperatura de almacenamiento(entre -30 y 30)
+	hasta que el usuario quiera e informar al terminar el ingreso por document.write:
+a) La cantidad de temperaturas pares.
+b) La marca del producto más pesado
+c) La cantidad de productos que se conservan a menos de 0 grados.
+d) El promedio del peso de todos los productos.
 f) El peso máximo y el mínimo. */
