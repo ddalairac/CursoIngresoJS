@@ -1,3 +1,4 @@
+
 function mostrar() {
 }//FIN DE LA FUNCIÓN
 
@@ -22,7 +23,6 @@ function numerosPrimos() {
         console.log("No es primo: " + numeroAnterior)
     }
 }
-
 function primosEntre1y100() {
     var numeroAnterior;
     var numerosPrimos;
@@ -47,7 +47,6 @@ function primosEntre1y100() {
 
     }
 }
-
 function numerosPerfecto() {
     var numeroIngresado;
     var numeroAnterior;
@@ -68,5 +67,32 @@ function numerosPerfecto() {
         console.log("Es perfecto: " + suma + "==" + numeroIngresado)
     } else {
         console.log("No es perfecto: " + suma + "!=" + numeroIngresado)
+    }
+}
+
+
+function centroNumerico(){
+    var sumaAnteriores;
+    var sumaPosteriores;
+    var numeroIngresado;
+    
+    sumaAnteriores=0;
+    sumaPosteriores=0;
+    numeroIngresado = prompt("Ingrese un numero");
+    numeroIngresado = parseInt(numeroIngresado);
+    console.log("numeroIngresado: "+numeroIngresado);
+
+    for(i=0;i<numeroIngresado;i++){
+        sumaAnteriores += i;   
+    }
+    console.log("sumaAnteriores: "+sumaAnteriores);
+    for(i=numeroIngresado+1;sumaAnteriores>sumaPosteriores;i++){
+        sumaPosteriores += i;   
+        
+          console.log("sumaPosteriores: "+sumaPosteriores);
+        if(sumaAnteriores==sumaPosteriores){
+            console.log("Es numero magico");
+            break;
+        }
     }
 }
