@@ -94,7 +94,7 @@ function NumerosPrimos() {
     var contador2;
     primos = "";
     contador2 = 2;
-    total=0;
+    total = 0;
     totalPrimos = 0;
 
     while (contador2 < numero) {
@@ -104,10 +104,10 @@ function NumerosPrimos() {
         total = 0;
         // total de numeros divisores
         while (contador < contador2) {
-            console.log(contador2+" % " + contador+" = "+ contador2 % contador );
-            if (contador2 % contador == 0 && contador2 != contador ) {
+            console.log(contador2 + " % " + contador + " = " + contador2 % contador);
+            if (contador2 % contador == 0 && contador2 != contador) {
                 total = total + 1;
-            } 
+            }
             contador = contador + 1;
         }
         // Sino no tiene divisores es primo, salvo el numero
@@ -121,9 +121,9 @@ function NumerosPrimos() {
 
     // Si existieron numeros primo se informan
     if (totalPrimos > 0) {
-        mensaje = "Hay " + totalPrimos + " numeros primos entre 1 y "+numero+". Lista: " + primos;
+        mensaje = "Hay " + totalPrimos + " numeros primos entre 1 y " + numero + ". Lista: " + primos;
     } else {
-        mensaje = "No hay numeros primos  entre 1 y "+numero;
+        mensaje = "No hay numeros primos  entre 1 y " + numero;
         /* if (numero == 2){
             mensaje = "No hay numeros primos contenidos en el numero 2, ademas de si mismo";
         } else {
