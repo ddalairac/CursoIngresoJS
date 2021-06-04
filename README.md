@@ -1,4 +1,7 @@
-# CursoIngresoJS
+
+# UTN Tecnicatura en Programación
+
+## Curso de ingreso
 Curso de ingreso con JavaScript
 
 ejercitación y TP para rendir el examen de ingreso 
